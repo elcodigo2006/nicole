@@ -102,142 +102,37 @@ function noteToFreq(noteStr) {
     return 440 * Math.pow(2, (midi - 69) / 12);
 }
 
-// Chords & notes definitions for the 5-song medley
+// Track metadata for UI display (actual audio comes from MP3 files)
 const medleySongs = [
     {
-        title: "Lucid Dreams",
-        artist: "Juice WRLD",
-        lyrics: "I still see your shadows in my room... 💜",
-        tempo: 95,
-        melody: [
-            'E4', null, 'G4', null, 'B4', null, 'A4', null,
-            'C4', null, 'E4', null, 'G4', null, 'F#4', null,
-            'B3', null, 'D4', null, 'F#4', null, 'E4', null,
-            'G3', null, 'B3', null, 'E4', null, 'D4', null
-        ],
-        bass: [
-            'E2', null, null, null, null, null, null, null,
-            'C2', null, null, null, null, null, null, null,
-            'D2', null, null, null, null, null, null, null,
-            'B1', null, null, null, null, null, null, null
-        ],
-        arpeggio: [
-            null, 'B4', null, 'E5', null, 'G5', null, null,
-            null, 'G4', null, 'C5', null, 'E5', null, null,
-            null, 'A4', null, 'D5', null, 'F#5', null, null,
-            null, 'F#4', null, 'B4', null, 'D#5', null, null
-        ]
+        title: "Stranger Things (Intro)",
+        artist: "Kyle Dixon & Michael Stein",
+        lyrics: "Bienvenida al Upside Down... 🌌",
+        src: "stranger-intro.mp3"
     },
     {
-        title: "Don't Cry",
-        artist: "Guns N' Roses",
-        lyrics: "Don't you cry tonight, there's a heaven above you... 🌹",
-        tempo: 95,
-        melody: [
-            'E5', null, 'D5', null, 'C5', null, 'B4', null,
-            'A4', null, null, null, 'B4', null, 'C5', null,
-            'D5', null, 'C5', null, 'B4', null, 'A4', null,
-            'G4', null, null, null, 'A4', null, 'B4', null
-        ],
-        bass: [
-            'A2', null, null, null, null, null, null, null,
-            'D2', null, null, null, null, null, null, null,
-            'G2', null, null, null, null, null, null, null,
-            'C3', null, null, null, null, null, null, null
-        ],
-        arpeggio: [
-            null, 'C4', null, 'E4', null, 'A4', null, null,
-            null, 'D4', null, 'F4', null, 'A4', null, null,
-            null, 'D4', null, 'G4', null, 'B4', null, null,
-            null, 'E4', null, 'G4', null, 'C5', null, null
-        ]
-    },
-    {
-        title: "En el muelle de San Blas",
-        artist: "Maná",
-        lyrics: "Ella se quedó, ella se quedó ahí... en el muelle de San Blas 🌊",
-        tempo: 95,
-        melody: [
-            'G4', 'B4', 'D5', 'B4', 'G4', 'A4', 'B4', 'G4',
-            'F#4', 'A4', 'D5', 'A4', 'F#4', 'G4', 'A4', 'F#4',
-            'E4', 'G4', 'B4', 'G4', 'E4', 'F#4', 'G4', 'E4',
-            'C4', 'E4', 'G4', 'E4', 'C4', 'D4', 'E4', 'F#4'
-        ],
-        bass: [
-            'G2', null, null, null, null, null, null, null,
-            'D2', null, null, null, null, null, null, null,
-            'E2', null, null, null, null, null, null, null,
-            'C2', null, null, null, null, null, null, null
-        ],
-        arpeggio: [
-            'G3', null, null, null, 'B3', null, null, null,
-            'F#3', null, null, null, 'A3', null, null, null,
-            'G3', null, null, null, 'B3', null, null, null,
-            'E3', null, null, null, 'G3', null, null, null
-        ]
-    },
-    {
-        title: "Entre Tejados",
-        artist: "Samuraï",
-        lyrics: "Creo que voy a perder la cabeza de pensarlo todo tanto... 🏠",
-        tempo: 95,
-        melody: [
-            'E4', null, 'E4', 'E4', 'E4', 'G4', 'E4', null,
-            'D4', null, 'C4', null, 'D4', null, 'E4', null,
-            'F#4', null, 'F#4', 'F#4', 'F#4', 'A4', 'F#4', null,
-            'E4', null, 'D4', null, 'E4', null, 'F#4', null
-        ],
-        bass: [
-            'C2', null, null, null, null, null, null, null,
-            'E2', null, null, null, null, null, null, null,
-            'A2', null, null, null, null, null, null, null,
-            'D2', null, null, null, null, null, null, null
-        ],
-        arpeggio: [
-            null, 'E4', null, 'G4', null, 'B4', null, null,
-            null, 'G4', null, 'B4', null, 'E5', null, null,
-            null, 'C4', null, 'E4', null, 'G4', null, null,
-            null, 'F#4', null, 'A4', null, 'D5', null, null
-        ]
-    },
-    {
-        title: "Dancing in the Moonlight",
-        artist: "Toploader",
-        lyrics: "Dancing in the moonlight, everybody's feeling warm and bright... 🌙",
-        tempo: 95,
-        melody: [
-            'B4', null, 'D5', 'E5', 'D5', 'B4', 'A4', null,
-            'G4', null, 'A4', null, 'B4', null, 'B4', null,
-            'B4', null, 'D5', 'E5', 'D5', 'B4', 'A4', null,
-            'G4', null, 'A4', null, 'B4', null, 'B4', null
-        ],
-        bass: [
-            'E2', null, null, null, null, null, null, null,
-            'A2', null, null, null, null, null, null, null,
-            'D2', null, null, null, null, null, null, null,
-            'B2', null, null, null, null, null, null, null
-        ],
-        arpeggio: [
-            null, 'G4', null, 'B4', null, 'D5', null, null,
-            null, 'G4', null, 'C#5', null, 'E5', null, null,
-            null, 'F#4', null, 'A4', null, 'C#5', null, null,
-            null, 'F#4', null, 'A4', null, 'D5', null, null
-        ]
+        title: "The Upside Down",
+        artist: "Kyle Dixon & Michael Stein",
+        lyrics: "La oscuridad y la luz... el mundo del revés 👾",
+        src: "Upside-down.mp3"
     }
 ];
 
-// Medley Player State
+// Player State
 let currentTrackIndex = 0;
-let currentStep = 0;
-let loopCount = 0;
 let isPlaying = false;
-let nextNoteTime = 0.0;
-const scheduleAheadTime = 0.12; // schedule 120ms ahead
-const lookahead = 30.0; // poll every 30ms
-let schedulerInterval = null;
 let visualizerAnimFrame = null;
+let progressInterval = null;
 
-// Audio routing nodes
+// MP3 Audio Elements
+let introAudio = null;
+let mainAudio = null;
+let introSourceNode = null;
+let mainSourceNode = null;
+let currentAudio = null;
+let audioSourcesConnected = false;
+
+// Audio routing nodes (Web Audio API — for visualizer + sound effects)
 let delayNode = null;
 let delayFeedback = null;
 let masterGain = null;
@@ -311,7 +206,7 @@ function setupAudioNodes() {
 }
 
 // Play a single note at a specific scheduled time in the AudioContext timeline
-function playSynthNoteScheduled(frequency, startTime, duration = 1.0, type = 'triangle', volume = 0.2) {
+function playSynthNoteScheduled(frequency, startTime, duration = 1.0, type = 'sawtooth', volume = 0.2) {
     try {
         const ctx = getAudioContext();
         setupAudioNodes();
@@ -323,16 +218,18 @@ function playSynthNoteScheduled(frequency, startTime, duration = 1.0, type = 'tr
         osc.type = type;
         osc.frequency.setValueAtTime(frequency, startTime);
         
-        // Lowpass filter to make it sound warm and cozy (bell/kalimba quality)
+        // Lowpass filter — higher cutoff for sawtooth to let harmonics through
+        // giving it that cold, bright 80s synth character
         filter.type = 'lowpass';
-        filter.frequency.setValueAtTime(1300, startTime);
-        filter.frequency.exponentialRampToValueAtTime(320, startTime + duration * 0.85);
+        filter.frequency.setValueAtTime(2500, startTime);
+        filter.frequency.exponentialRampToValueAtTime(800, startTime + duration * 0.7);
+        filter.Q.setValueAtTime(2.0, startTime); // slight resonance for that synth sweep
         
-        // ADSR Envelope
+        // ADSR Envelope — snappy attack, moderate decay for synth stabs
         gainNode.gain.setValueAtTime(0, startTime);
-        gainNode.gain.linearRampToValueAtTime(volume, startTime + 0.04); // soft attack
-        gainNode.gain.exponentialRampToValueAtTime(volume * 0.25, startTime + 0.25); // decay
-        gainNode.gain.setValueAtTime(volume * 0.25, startTime + duration - 0.15); // sustain
+        gainNode.gain.linearRampToValueAtTime(volume, startTime + 0.015); // fast attack
+        gainNode.gain.exponentialRampToValueAtTime(volume * 0.6, startTime + 0.12);  // decay
+        gainNode.gain.setValueAtTime(volume * 0.6, startTime + duration - 0.1); // sustain
         gainNode.gain.exponentialRampToValueAtTime(0.0001, startTime + duration); // release
         
         osc.connect(filter);
@@ -341,8 +238,8 @@ function playSynthNoteScheduled(frequency, startTime, duration = 1.0, type = 'tr
         // Route to Master Gain (Dry)
         gainNode.connect(masterGain);
         
-        // Add additional routing to Delay (Wet) for melody/arps to create spacious echo tails
-        if (type === 'triangle' || (type === 'sine' && volume < 0.15)) {
+        // Add delay to sawtooth lead and square pads for spacious echo
+        if (type === 'sawtooth' || type === 'square') {
             gainNode.connect(delayNode);
         }
         
@@ -353,97 +250,80 @@ function playSynthNoteScheduled(frequency, startTime, duration = 1.0, type = 'tr
     }
 }
 
-// Web Audio API Lookahead Scheduler
-function scheduler() {
-    const ctx = getAudioContext();
-    while (nextNoteTime < ctx.currentTime + scheduleAheadTime) {
-        scheduleNote(currentStep, nextNoteTime);
-        advanceNote();
-    }
-}
-
-// Play note trigger logic based on active song and current step
-function scheduleNote(step, time) {
-    const song = medleySongs[currentTrackIndex];
-    const secondsPerBeat = 60.0 / song.tempo;
-    const stepDuration = secondsPerBeat / 2; // 8th note duration
+// HTML5 Audio Playback Engine for MP3 files
+function initAudioElements() {
+    if (introAudio) return;
     
-    // 1. Play Melody (Triangle, high volume)
-    const melodyPitch = song.melody[step];
-    if (melodyPitch) {
-        const freq = noteToFreq(melodyPitch);
-        playSynthNoteScheduled(freq, time, stepDuration * 1.8, 'triangle', 0.24);
-    }
+    introAudio = new Audio('stranger-intro.mp3');
+    mainAudio = new Audio('Upside-down.mp3');
     
-    // 2. Play Bassline (Sine, warm and low)
-    const bassPitch = song.bass[step];
-    if (bassPitch) {
-        const freq = noteToFreq(bassPitch);
-        playSynthNoteScheduled(freq, time, stepDuration * 3.5, 'sine', 0.18);
-    }
+    introAudio.preload = 'auto';
+    mainAudio.preload = 'auto';
     
-    // 3. Play Arpeggio / Harmonies (Sine, soft and sparkly)
-    const arpPitch = song.arpeggio[step];
-    if (arpPitch) {
-        const freq = noteToFreq(arpPitch);
-        // Transpose up slightly or keep relative octave
-        playSynthNoteScheduled(freq, time, stepDuration * 2.2, 'sine', 0.07);
-    }
-}
-
-// Step timeline progression
-function advanceNote() {
-    const song = medleySongs[currentTrackIndex];
-    const secondsPerBeat = 60.0 / song.tempo;
-    const stepDuration = secondsPerBeat / 2; // 8th notes
-    
-    nextNoteTime += stepDuration;
-    currentStep++;
-    
-    // Update progress bar
-    updateProgressBar(stepDuration);
-    
-    if (currentStep >= song.melody.length) {
-        currentStep = 0;
-        loopCount++;
-        
-        if (loopCount >= 2) { // Play song loop twice (approx 20 seconds), then auto-advance
-            loopCount = 0;
-            currentTrackIndex = (currentTrackIndex + 1) % medleySongs.length;
-            updateActiveTrackUI();
+    introAudio.addEventListener('ended', () => {
+        if (isPlaying) {
+            selectTrack(1); // Auto-advance to the main theme when intro ends
         }
+    });
+    
+    mainAudio.loop = true;
+}
+
+function connectAudioToVisualizer(audioElement) {
+    try {
+        const ctx = getAudioContext();
+        setupAudioNodes();
+        
+        if (audioElement === introAudio) {
+            if (!introSourceNode) {
+                introSourceNode = ctx.createMediaElementSource(introAudio);
+                introSourceNode.connect(masterGain);
+            }
+        } else if (audioElement === mainAudio) {
+            if (!mainSourceNode) {
+                mainSourceNode = ctx.createMediaElementSource(mainAudio);
+                mainSourceNode.connect(masterGain);
+            }
+        }
+    } catch (e) {
+        console.error("Error connecting audio element to Web Audio analyser:", e);
     }
 }
 
-// Start Medley Player Scheduler
-function startMedleyScheduler() {
-    const ctx = getAudioContext();
-    setupAudioNodes();
+function playCurrentAudio() {
+    initAudioElements();
     
-    // Set first scheduled note slightly in the future
-    nextNoteTime = ctx.currentTime + 0.1;
+    const nextAudio = (currentTrackIndex === 0) ? introAudio : mainAudio;
     
-    // Trigger visualizer draw loop
+    if (currentAudio && currentAudio !== nextAudio) {
+        currentAudio.pause();
+    }
+    
+    currentAudio = nextAudio;
+    connectAudioToVisualizer(currentAudio);
+    
+    currentAudio.play().catch(e => {
+        console.log("Audio play blocked or failed:", e);
+    });
+    
+    if (progressInterval) clearInterval(progressInterval);
+    progressInterval = setInterval(updateProgressBar, 250);
+    
     if (!visualizerAnimFrame) {
         drawVisualizer();
     }
-    
-    // Start interval loop
-    if (schedulerInterval) clearInterval(schedulerInterval);
-    schedulerInterval = setInterval(() => {
-        scheduler();
-    }, lookahead);
 }
 
-// Stop Medley Player Scheduler
-function stopMedleyScheduler() {
-    if (schedulerInterval) {
-        clearInterval(schedulerInterval);
-        schedulerInterval = null;
+function pauseCurrentAudio() {
+    if (currentAudio) {
+        currentAudio.pause();
+    }
+    if (progressInterval) {
+        clearInterval(progressInterval);
+        progressInterval = null;
     }
 }
 
-// Toggle Playback State
 function togglePlayback() {
     isPlaying = !isPlaying;
     
@@ -470,11 +350,8 @@ function togglePlayback() {
         card.classList.remove('paused-track');
         playlistTracks.forEach(t => t.classList.remove('paused-track'));
         
-        // Start Web Audio
-        getAudioContext();
-        startMedleyScheduler();
+        playCurrentAudio();
         
-        // Set tooltip text
         floatBtn.querySelector('.audio-tooltip').textContent = "Pausar música";
     } else {
         playIcon.classList.remove('hidden');
@@ -487,31 +364,24 @@ function togglePlayback() {
         card.classList.add('paused-track');
         playlistTracks.forEach(t => t.classList.add('paused-track'));
         
-        stopMedleyScheduler();
+        pauseCurrentAudio();
         
-        // Set tooltip text
         floatBtn.querySelector('.audio-tooltip').textContent = "Reproducir música";
     }
 }
 
-// Change current track index directly (prev/next or playlist selection)
 function selectTrack(trackIdx) {
     currentTrackIndex = (trackIdx + medleySongs.length) % medleySongs.length;
-    currentStep = 0;
-    loopCount = 0;
     
     updateActiveTrackUI();
     
     if (isPlaying) {
-        const ctx = getAudioContext();
-        nextNoteTime = ctx.currentTime + 0.05;
+        playCurrentAudio();
     } else {
-        // If paused, auto-play when clicked
         togglePlayback();
     }
 }
 
-// Update Active Track Styling and details in the UI
 function updateActiveTrackUI() {
     const song = medleySongs[currentTrackIndex];
     if (!song) return;
@@ -538,7 +408,6 @@ function updateActiveTrackUI() {
     });
 }
 
-// Update scrolling lyrics marquee
 function updateLyrics(lyricsText) {
     const ticker = document.getElementById('player-lyrics-ticker');
     if (!ticker) return;
@@ -553,18 +422,20 @@ function updateLyrics(lyricsText) {
     }
 }
 
-// Format seconds to M:SS
 function formatTime(seconds) {
+    if (isNaN(seconds) || seconds === Infinity) return "0:00";
     const mins = Math.floor(seconds / 60);
     const secs = Math.floor(seconds % 60);
     return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
 }
 
-// Update progress bar and timers
-function updateProgressBar(stepDuration) {
-    const totalSteps = 64; // 2 loops * 32 steps
-    const currentAbsoluteStep = loopCount * 32 + currentStep;
-    const progressPercent = (currentAbsoluteStep / totalSteps) * 100;
+function updateProgressBar() {
+    if (!currentAudio) return;
+    
+    const duration = currentAudio.duration || 0;
+    const currentTime = currentAudio.currentTime || 0;
+    
+    const progressPercent = duration > 0 ? (currentTime / duration) * 100 : 0;
     
     const fillEl = document.getElementById('player-progress-bar');
     const currentTimerEl = document.getElementById('player-time-current');
@@ -572,11 +443,8 @@ function updateProgressBar(stepDuration) {
     
     if (fillEl) fillEl.style.width = `${progressPercent}%`;
     
-    const currentSecs = currentAbsoluteStep * stepDuration;
-    const totalSecs = totalSteps * stepDuration;
-    
-    if (currentTimerEl) currentTimerEl.textContent = formatTime(currentSecs);
-    if (totalTimerEl) totalTimerEl.textContent = formatTime(totalSecs);
+    if (currentTimerEl) currentTimerEl.textContent = formatTime(currentTime);
+    if (totalTimerEl && duration > 0) totalTimerEl.textContent = formatTime(duration);
 }
 
 // Dynamic Circular Visualizer Renderer
@@ -1411,29 +1279,23 @@ function setupEventListeners() {
     const progressContainer = document.getElementById('player-progress-container');
     if (progressContainer) {
         progressContainer.addEventListener('click', (e) => {
+            if (!currentAudio) return;
             const rect = progressContainer.getBoundingClientRect();
             const clickX = e.clientX - rect.left;
             const percent = clickX / rect.width;
             
-            const totalSteps = 64; // 2 loops * 32 steps
-            const targetStep = Math.min(totalSteps - 1, Math.max(0, Math.floor(percent * totalSteps)));
-            
-            loopCount = Math.floor(targetStep / 32);
-            currentStep = targetStep % 32;
-            
-            const song = medleySongs[currentTrackIndex];
-            const stepDuration = (60.0 / song.tempo) / 2;
-            updateProgressBar(stepDuration);
-            
-            if (isPlaying) {
-                const ctx = getAudioContext();
-                nextNoteTime = ctx.currentTime + 0.05;
-            }
+            const duration = currentAudio.duration || 0;
+            currentAudio.currentTime = percent * duration;
+            updateProgressBar();
         });
     }
     
-    // 4. Envelope opening
+    // 4. Envelope opening and Letter Modal logic
     const envelope = document.getElementById('envelope');
+    const letter = document.getElementById('letter');
+    const letterModal = document.getElementById('letter-modal');
+    const modalCloseBtn = document.getElementById('modal-close-btn');
+    
     if (envelope) {
         envelope.addEventListener('click', (e) => {
             envelope.classList.toggle('open');
@@ -1451,29 +1313,36 @@ function setupEventListeners() {
         });
     }
     
-    // 5. Interactive Music Box (Kalimba) keys
-    const kalimbaKeys = document.querySelectorAll('.kalimba-key');
-    kalimbaKeys.forEach(key => {
-        const playNote = () => {
-            const note = key.getAttribute('data-note');
-            const freq = NOTE_FREQS[note];
-            
-            // Visual key down effect
-            key.classList.add('active');
-            playSynthNote(freq, 'triangle', 1.5);
-            
+    if (letter && letterModal) {
+        letter.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (envelope && envelope.classList.contains('open')) {
+                letterModal.classList.remove('hidden');
+                setTimeout(() => {
+                    letterModal.classList.add('active');
+                }, 10);
+                playSynthNote(659.25, 'sine', 1.0); // play E5
+            }
+        });
+    }
+    
+    if (modalCloseBtn && letterModal) {
+        const closeModal = () => {
+            letterModal.classList.remove('active');
             setTimeout(() => {
-                key.classList.remove('active');
-            }, 120);
+                letterModal.classList.add('hidden');
+            }, 500);
+            playSynthNote(NOTE_FREQS['G4'], 'sine', 0.8);
         };
         
-        // Hover (desktop) & Touch (mobile) triggers
-        key.addEventListener('mouseenter', playNote);
-        key.addEventListener('touchstart', (e) => {
-            e.preventDefault();
-            playNote();
+        modalCloseBtn.addEventListener('click', closeModal);
+        
+        letterModal.addEventListener('click', (e) => {
+            if (e.target === letterModal) {
+                closeModal();
+            }
         });
-    });
+    }
     
     // 6. Mouse position tracking for card glow effect
     const cards = document.querySelectorAll('.card');

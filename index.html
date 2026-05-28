@@ -94,24 +94,6 @@
                 </div>
             </section>
 
-            <!-- Right Side Bottom: The Music Box -->
-            <section class="card music-card">
-                <div class="card-glow"></div>
-                <h3 class="card-title">Caja de Música</h3>
-                <p class="card-desc">Pasa el ratón o toca las láminas para hacer sonar esta kalimba interactiva.</p>
-                <div class="kalimba-container" id="kalimba">
-                    <!-- 9 interactive keys with different notes -->
-                    <div class="kalimba-key" data-note="C4"><span>Do</span></div>
-                    <div class="kalimba-key" data-note="D4"><span>Re</span></div>
-                    <div class="kalimba-key" data-note="E4"><span>Mi</span></div>
-                    <div class="kalimba-key" data-note="F4"><span>Fa</span></div>
-                    <div class="kalimba-key" data-note="G4"><span>Sol</span></div>
-                    <div class="kalimba-key" data-note="A4"><span>La</span></div>
-                    <div class="kalimba-key" data-note="B4"><span>Si</span></div>
-                    <div class="kalimba-key" data-note="C5"><span>Do+</span></div>
-                    <div class="kalimba-key" data-note="D5"><span>Re+</span></div>
-                </div>
-            </section>
 
             <!-- Bottom: The Background Music Medley Player -->
             <section class="card player-card">
@@ -170,7 +152,7 @@
 
                     <!-- Right: Medley Playlist -->
                     <div class="player-playlist-pane">
-                        <h4 class="playlist-header">El Medley Combinado</h4>
+                        <h4 class="playlist-header">Banda Sonora Hawkins</h4>
                         <div class="playlist-list" id="player-playlist">
                             <div class="playlist-track active" data-index="0">
                                 <div class="track-num-status">
@@ -178,8 +160,8 @@
                                     <span class="playing-bars hidden"><span></span><span></span><span></span></span>
                                 </div>
                                 <div class="track-name-meta">
-                                    <span class="title">Lucid Dreams</span>
-                                    <span class="artist">Juice WRLD</span>
+                                    <span class="title">Stranger Things (Intro)</span>
+                                    <span class="artist">Kyle Dixon & Michael Stein</span>
                                 </div>
                             </div>
                             <div class="playlist-track" data-index="1">
@@ -188,38 +170,8 @@
                                     <span class="playing-bars hidden"><span></span><span></span><span></span></span>
                                 </div>
                                 <div class="track-name-meta">
-                                    <span class="title">Don't Cry</span>
-                                    <span class="artist">Guns N' Roses</span>
-                                </div>
-                            </div>
-                            <div class="playlist-track" data-index="2">
-                                <div class="track-num-status">
-                                    <span class="num">3</span>
-                                    <span class="playing-bars hidden"><span></span><span></span><span></span></span>
-                                </div>
-                                <div class="track-name-meta">
-                                    <span class="title">En el muelle de San Blas</span>
-                                    <span class="artist">Maná</span>
-                                </div>
-                            </div>
-                            <div class="playlist-track" data-index="3">
-                                <div class="track-num-status">
-                                    <span class="num">4</span>
-                                    <span class="playing-bars hidden"><span></span><span></span><span></span></span>
-                                </div>
-                                <div class="track-name-meta">
-                                    <span class="title">Entre Tejados</span>
-                                    <span class="artist">Samuraï</span>
-                                </div>
-                            </div>
-                            <div class="playlist-track" data-index="4">
-                                <div class="track-num-status">
-                                    <span class="num">5</span>
-                                    <span class="playing-bars hidden"><span></span><span></span><span></span></span>
-                                </div>
-                                <div class="track-name-meta">
-                                    <span class="title">Dancing in the Moonlight</span>
-                                    <span class="artist">Toploader</span>
+                                    <span class="title">The Upside Down</span>
+                                    <span class="artist">Kyle Dixon & Michael Stein</span>
                                 </div>
                             </div>
                         </div>
@@ -232,6 +184,31 @@
             <p>Hecho con magia y flores violetas para Nicole 🌸</p>
         </footer>
     </main>
+
+    <!-- Letter Modal Overlay -->
+    <div id="letter-modal" class="modal-overlay hidden">
+        <div class="modal-card">
+            <button id="modal-close-btn" class="modal-close-btn" aria-label="Cerrar carta">
+                <svg viewBox="0 0 24 24" width="24" height="24">
+                    <path fill="currentColor" d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                </svg>
+            </button>
+            <div class="modal-letter-content">
+                <p class="letter-date">28 de Mayo, 2026</p>
+                <p class="letter-greeting">Hola Nicole,</p>
+                <p class="letter-text">
+                    Dicen que los detalles más bonitos y sinceros son los que nacen de forma espontánea. Como la flor que acabas de ver florecer, a veces las cosas más hermosas toman su tiempo para mostrar toda su belleza.
+                </p>
+                <p class="letter-text">
+                    Estoy muy contento de haberte conocido. Quería hacer algo único y creativo para ti, combinando arte y código para regalarte una sonrisa hoy. 
+                </p>
+                <p class="letter-text">
+                    Espero que este rincón interactivo te guste tanto como a mí me gustó crearlo pensando en ti. Que tengas un día tan bonito como el color de estas flores. ✨
+                </p>
+                <p class="letter-signature">Con cariño...</p>
+            </div>
+        </div>
+    </div>
 
     <!-- Background Sparkles JavaScript code directly integrated or loaded -->
     <script src="app.js"></script>

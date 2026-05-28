@@ -324,11 +324,7 @@ body {
     margin-bottom: 50px;
 }
 
-@media (max-width: 900px) {
-    .content-grid {
-        grid-template-columns: 1fr;
-    }
-}
+
 
 /* Cards (Glassmorphism) */
 .card {
@@ -378,17 +374,17 @@ body {
 
 /* Envelope & Letter Feature */
 .letter-card {
-    grid-row: span 2;
-    min-height: 520px;
+    min-height: 380px;
     justify-content: flex-start;
+    overflow: visible !important;
+    z-index: 10;
 }
 
 .envelope-wrapper {
     position: relative;
-    width: 100%;
-    max-width: 320px;
-    height: 200px;
-    margin: 60px auto 40px auto;
+    width: 280px;
+    height: 180px;
+    margin: 40px auto 20px auto;
     perspective: 1000px;
     z-index: 1;
 }
@@ -409,10 +405,10 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
-    border-left: 160px solid transparent;
-    border-right: 160px solid transparent;
-    border-bottom: 100px solid #4a2779;
-    border-top: 100px solid transparent;
+    border-left: 140px solid transparent;
+    border-right: 140px solid transparent;
+    border-bottom: 90px solid #4a2779;
+    border-top: 90px solid transparent;
     bottom: 0;
     left: 0;
     z-index: 3;
@@ -425,12 +421,12 @@ body {
     position: absolute;
     width: 0;
     height: 0;
-    border-left: 160px solid #3c1e63;
-    border-right: 160px solid transparent;
-    border-bottom: 100px solid transparent;
-    border-top: 100px solid #3c1e63;
-    top: -100px;
-    left: -160px;
+    border-left: 140px solid #3c1e63;
+    border-right: 140px solid transparent;
+    border-bottom: 90px solid transparent;
+    border-top: 90px solid #3c1e63;
+    top: -90px;
+    left: -140px;
     z-index: 3;
 }
 
@@ -449,9 +445,9 @@ body {
     left: 0;
     width: 0;
     height: 0;
-    border-left: 160px solid transparent;
-    border-right: 160px solid transparent;
-    border-top: 105px solid #5a3095;
+    border-left: 140px solid transparent;
+    border-right: 140px solid transparent;
+    border-top: 95px solid #5a3095;
     border-bottom: 0 solid transparent;
     transform-origin: top center;
     transition: transform 0.4s ease-out 0.2s, z-index 0.05s linear 0.4s;
@@ -462,7 +458,7 @@ body {
     /* Beautiful wax seal effect */
     content: '✨';
     position: absolute;
-    top: -125px;
+    top: -115px;
     left: -20px;
     width: 40px;
     height: 40px;
@@ -487,11 +483,11 @@ body {
     bottom: 5px;
     left: 15px;
     width: calc(100% - 30px);
-    height: 180px;
+    height: 160px;
     background: #fbf6ef;
     background-image: linear-gradient(rgba(138, 43, 226, 0.05) 1px, transparent 1px);
     background-size: 100% 24px;
-    padding: 25px 20px 20px 25px;
+    padding: 20px 15px 15px 15px;
     border-radius: 4px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     z-index: 2;
@@ -501,42 +497,48 @@ body {
     color: #2b1f3d;
     box-shadow: inset 0 0 40px rgba(200, 180, 150, 0.15);
     border: 1px solid #f2e7d5;
+    cursor: pointer;
 }
 
 .letter-content {
-    opacity: 0.8;
+    opacity: 0.85;
     transition: opacity 0.5s ease 0.5s;
-    font-size: 0.9rem;
-    line-height: 1.6;
+    font-size: 0.85rem;
+    line-height: 1.5;
 }
 
 .letter-date {
     text-align: right;
     font-style: italic;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     color: #7b6f8a;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .letter-greeting {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
-    font-size: 1.2rem;
-    margin-bottom: 12px;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
     color: #4a2779;
 }
 
 .letter-text {
-    margin-bottom: 12px;
+    margin-bottom: 8px;
     text-align: justify;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .letter-signature {
-    margin-top: 20px;
+    margin-top: 15px;
     font-family: 'Playfair Display', serif;
     font-style: italic;
     font-weight: 700;
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: #4a2779;
     text-align: right;
 }
@@ -550,15 +552,28 @@ body {
 }
 
 .envelope.open .letter {
-    transform: translateY(-240px);
-    height: 380px;
+    transform: translateY(-110px);
+    height: 165px;
     z-index: 5;
-    overflow-y: auto;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.envelope.open .letter::after {
+    content: 'Leer carta 🔍';
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background: rgba(138, 43, 226, 0.15);
+    color: #4a2779;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    animation: pulseGlow 2s infinite ease-in-out;
 }
 
 .envelope.open {
-    transform: translateY(100px);
+    transform: translateY(60px);
 }
 
 /* Interactive Garden */
@@ -609,72 +624,7 @@ body {
     }
 }
 
-/* Music Box (Kalimba) */
-.music-card {
-    z-index: 1;
-}
 
-.kalimba-container {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    height: 160px;
-    background: rgba(18, 9, 36, 0.6);
-    border-radius: 12px;
-    padding: 15px;
-    gap: 8px;
-    border: 1px solid rgba(138, 43, 226, 0.15);
-}
-
-.kalimba-key {
-    flex: 1;
-    background: linear-gradient(180deg, #514269 0%, #312148 60%, #150824 100%);
-    border-radius: 6px;
-    position: relative;
-    cursor: pointer;
-    transition: transform 0.1s ease, background 0.1s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4), inset 0 2px 3px rgba(255, 255, 255, 0.15);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    padding-bottom: 15px;
-    user-select: none;
-}
-
-.kalimba-key::before {
-    /* Metal reflection tip */
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 12px;
-    background: linear-gradient(90deg, #d3cbe0, #fff, #d3cbe0);
-    border-radius: 6px 6px 0 0;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-}
-
-.kalimba-key span {
-    font-size: 0.75rem;
-    color: var(--text-muted);
-    font-weight: 600;
-    text-transform: uppercase;
-}
-
-.kalimba-key:hover {
-    background: linear-gradient(180deg, #6c5a8c 0%, #463266 60%, #200d36 100%);
-}
-
-.kalimba-key.active {
-    transform: translateY(8px) scaleY(0.95);
-    background: linear-gradient(180deg, var(--violet) 0%, #5a189a 60%, #3c096c 100%);
-    box-shadow: 0 0 15px var(--violet-glow);
-}
-
-.kalimba-key.active span {
-    color: var(--text-light);
-}
 
 /* Footer */
 .main-footer {
@@ -708,14 +658,7 @@ body {
     z-index: 1;
 }
 
-@media (max-width: 800px) {
-    .player-card {
-        grid-column: span 1;
-    }
-    .player-layout {
-        grid-template-columns: 1fr;
-    }
-}
+
 
 .player-main {
     display: flex;
@@ -1064,5 +1007,176 @@ body {
 .playlist-track .track-name-meta .artist {
     font-size: 0.75rem;
     color: var(--text-muted);
+}
+
+/* ==========================================================================
+   Letter Modal Overlay
+   ========================================================================== */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(8, 5, 17, 0.85);
+    backdrop-filter: blur(12px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+    padding: 20px;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-card {
+    background: #fbf6ef;
+    border: 1px solid #f2e7d5;
+    width: 100%;
+    max-width: 500px;
+    max-height: 85vh;
+    border-radius: 16px;
+    padding: 40px 30px;
+    position: relative;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+    overflow-y: auto;
+    transform: translateY(30px);
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    color: #2b1f3d;
+    background-image: linear-gradient(rgba(138, 43, 226, 0.05) 1px, transparent 1px);
+    background-size: 100% 24px;
+    box-shadow: inset 0 0 40px rgba(200, 180, 150, 0.15);
+}
+
+.modal-overlay.active .modal-card {
+    transform: translateY(0);
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(138, 43, 226, 0.1);
+    border: none;
+    color: #4a2779;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.modal-close-btn:hover {
+    background: #4a2779;
+    color: #fbf6ef;
+    transform: scale(1.08);
+}
+
+.modal-letter-content {
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+/* Override clamp/truncation for full letter reading inside modal */
+.modal-letter-content .letter-text {
+    display: block;
+    -webkit-line-clamp: unset;
+    -webkit-box-orient: unset;
+    overflow: visible;
+    text-overflow: unset;
+    margin-bottom: 16px;
+}
+
+.modal-letter-content .letter-date {
+    font-size: 0.85rem;
+    margin-bottom: 18px;
+}
+
+.modal-letter-content .letter-greeting {
+    font-size: 1.25rem;
+    margin-bottom: 18px;
+}
+
+.modal-letter-content .letter-signature {
+    margin-top: 24px;
+    font-size: 1.15rem;
+}
+
+/* ==========================================================================
+   Consolidated & Robust Responsive Styles
+   ========================================================================== */
+@media (max-width: 800px) {
+    /* Intro Screen */
+    .fade-in-text {
+        font-size: 2.2rem;
+    }
+    
+    .fade-in-text-delay {
+        font-size: 0.95rem;
+        margin-bottom: 25px;
+    }
+    
+    .btn {
+        padding: 10px 25px;
+        font-size: 1rem;
+    }
+    
+    /* Main Screen Layout */
+    #main-screen {
+        padding-top: 50px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    
+    .main-header {
+        margin-bottom: 25px;
+    }
+    
+    .main-header .title {
+        font-size: 2rem;
+    }
+    
+    .main-header .subtitle {
+        font-size: 0.95rem;
+    }
+    
+    /* Grid system */
+    .content-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    /* Cards */
+    .card {
+        padding: 20px;
+    }
+    
+    /* Letter card details */
+    .letter-card {
+        min-height: auto;
+    }
+    
+    .envelope-wrapper {
+        margin: 30px auto 15px auto;
+    }
+    
+    /* Player Card Details */
+    .player-card {
+        grid-column: span 1;
+    }
+    
+    .player-layout {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
 }
 
