@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Nicole ✨</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Ambient Sparkles Background -->
+    <div class="bg-glow"></div>
+    <div class="particles-container" id="bg-particles"></div>
+
+    <!-- Floating Audio Toggle -->
+    <button id="audio-toggle" class="audio-toggle-btn" aria-label="Activar música">
+        <svg class="icon-mute" viewBox="0 0 24 24" width="24" height="24">
+            <path fill="currentColor" d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM12 4L9.91 6.09 12 8.18V4zm-8.62.5L2 5.88 5.12 9H3v6h4l5 5v-6.88l4.5 4.5c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L18.12 21l1.38-1.38L4.38 4.5 3.38 3.5zm8.62 11.38L8.12 12H5v-2h3.12l.88-.88L12 12.24v3.64z"/>
+        </svg>
+        <svg class="icon-unmute hidden" viewBox="0 0 24 24" width="24" height="24">
+            <path fill="currentColor" d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+        </svg>
+        <span class="audio-tooltip">Música de fondo</span>
+    </button>
+
+    <!-- Intro & Blooming Flower Animation Screen -->
+    <section id="intro-screen" class="screen active">
+        <canvas id="flower-canvas"></canvas>
+        
+        <div class="intro-content">
+            <h1 class="fade-in-text">Hola Nicole...</h1>
+            <p class="fade-in-text-delay">He preparado algo especial para ti. Deja que florezca...</p>
+            <button id="enter-btn" class="btn hidden-btn">
+                <span>Descubrir</span>
+                <svg viewBox="0 0 24 24" width="20" height="20">
+                    <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </button>
+        </div>
+    </section>
+
+    <!-- Main Content Screen -->
+    <main id="main-screen" class="screen hidden">
+        <header class="main-header">
+            <h2 class="title">Un destello violeta</h2>
+            <p class="subtitle">Creado con cariño para alegrar tu día</p>
+        </header>
+
+        <div class="content-grid">
+            <!-- Left Side: Interactive Envelope and Letter -->
+            <section class="card letter-card">
+                <div class="card-glow"></div>
+                <h3 class="card-title">Un Mensaje</h3>
+                <p class="card-desc">Haz clic en el sobre para abrir la carta</p>
+                
+                <div class="envelope-wrapper">
+                    <div class="envelope" id="envelope">
+                        <div class="envelope-front"></div>
+                        <div class="envelope-back"></div>
+                        <div class="envelope-top-flap"></div>
+                        <div class="letter" id="letter">
+                            <div class="letter-content">
+                                <p class="letter-date">28 de Mayo, 2026</p>
+                                <p class="letter-greeting">Hola Nicole,</p>
+                                <p class="letter-text">
+                                    Dicen que los detalles más bonitos y sinceros son los que nacen de forma espontánea. Como la flor que acabas de ver florecer, a veces las cosas más hermosas toman su tiempo para mostrar toda su belleza.
+                                </p>
+                                <p class="letter-text">
+                                    Estoy muy contento de haberte conocido. Quería hacer algo único y creativo para ti, combinando arte y código para regalarte una sonrisa hoy. 
+                                </p>
+                                <p class="letter-text">
+                                    Espero que este rincón interactivo te guste tanto como a mí me gustó crearlo pensando en ti. Que tengas un día tan bonito como el color de estas flores. ✨
+                                </p>
+                                <p class="letter-signature">Con cariño...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right Side Top: The Interactive Garden -->
+            <section class="card garden-card">
+                <div class="card-glow"></div>
+                <h3 class="card-title">Tu Jardín Violeta</h3>
+                <p class="card-desc">Toca o haz clic sobre la tierra negra para sembrar una flor violeta y verla florecer en el instante.</p>
+                <div class="garden-container">
+                    <canvas id="garden-canvas"></canvas>
+                    <div class="garden-prompt">Haz clic aquí para sembrar ✨</div>
+                </div>
+            </section>
+
+            <!-- Right Side Bottom: The Music Box -->
+            <section class="card music-card">
+                <div class="card-glow"></div>
+                <h3 class="card-title">Caja de Música</h3>
+                <p class="card-desc">Pasa el ratón o toca las láminas para hacer sonar esta kalimba interactiva.</p>
+                <div class="kalimba-container" id="kalimba">
+                    <!-- 9 interactive keys with different notes -->
+                    <div class="kalimba-key" data-note="C4"><span>Do</span></div>
+                    <div class="kalimba-key" data-note="D4"><span>Re</span></div>
+                    <div class="kalimba-key" data-note="E4"><span>Mi</span></div>
+                    <div class="kalimba-key" data-note="F4"><span>Fa</span></div>
+                    <div class="kalimba-key" data-note="G4"><span>Sol</span></div>
+                    <div class="kalimba-key" data-note="A4"><span>La</span></div>
+                    <div class="kalimba-key" data-note="B4"><span>Si</span></div>
+                    <div class="kalimba-key" data-note="C5"><span>Do+</span></div>
+                    <div class="kalimba-key" data-note="D5"><span>Re+</span></div>
+                </div>
+            </section>
+
+            <!-- Bottom: The Background Music Medley Player -->
+            <section class="card player-card">
+                <div class="card-glow"></div>
+                <div class="player-layout">
+                    <!-- Left: Controls & Visualizer -->
+                    <div class="player-main">
+                        <h3 class="card-title">Banda Sonora para Nicole</h3>
+                        <p class="card-desc">Una melodía continua y dreamy que entrelaza tus canciones favoritas.</p>
+                        
+                        <div class="visualizer-container">
+                            <canvas id="player-visualizer"></canvas>
+                            <div class="playback-ring-outer"></div>
+                            <button id="player-play-btn" class="player-play-btn" aria-label="Reproducir o pausar la música">
+                                <svg class="icon-play" viewBox="0 0 24 24" width="32" height="32">
+                                    <path fill="currentColor" d="M8 5v14l11-7z"/>
+                                </svg>
+                                <svg class="icon-pause hidden" viewBox="0 0 24 24" width="32" height="32">
+                                    <path fill="currentColor" d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <div class="track-details">
+                            <div class="track-text">
+                                <h4 id="player-track-title" class="track-title-text">Selecciona una canción</h4>
+                                <p id="player-track-artist" class="track-artist-text">Toca reproducir para iniciar</p>
+                            </div>
+                            <div class="lyrics-ticker-container">
+                                <div id="player-lyrics-ticker" class="lyrics-ticker">"La música llena el alma de destellos violetas..."</div>
+                            </div>
+                        </div>
+
+                        <div class="player-controls">
+                            <button id="player-prev-btn" class="player-ctrl-btn" aria-label="Canción anterior">
+                                <svg viewBox="0 0 24 24" width="22" height="22">
+                                    <path fill="currentColor" d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/>
+                                </svg>
+                            </button>
+                            <div class="progress-container" id="player-progress-container">
+                                <div class="progress-bar-bg">
+                                    <div class="progress-bar-fill" id="player-progress-bar"></div>
+                                </div>
+                                <div class="time-display">
+                                    <span id="player-time-current">0:00</span>
+                                    <span id="player-time-total">0:00</span>
+                                </div>
+                            </div>
+                            <button id="player-next-btn" class="player-ctrl-btn" aria-label="Siguiente canción">
+                                <svg viewBox="0 0 24 24" width="22" height="22">
+                                    <path fill="currentColor" d="M6 18l8.5-6L6 6zm9-12v12h2V6z"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Right: Medley Playlist -->
+                    <div class="player-playlist-pane">
+                        <h4 class="playlist-header">El Medley Combinado</h4>
+                        <div class="playlist-list" id="player-playlist">
+                            <div class="playlist-track active" data-index="0">
+                                <div class="track-num-status">
+                                    <span class="num">1</span>
+                                    <span class="playing-bars hidden"><span></span><span></span><span></span></span>
+                                </div>
+                                <div class="track-name-meta">
+                                    <span class="title">Lucid Dreams</span>
+                                    <span class="artist">Juice WRLD</span>
+                                </div>
+                            </div>
+                            <div class="playlist-track" data-index="1">
+                                <div class="track-num-status">
+                                    <span class="num">2</span>
+                                    <span class="playing-bars hidden"><span></span><span></span><span></span></span>
+                                </div>
+                                <div class="track-name-meta">
+                                    <span class="title">Don't Cry</span>
+                                    <span class="artist">Guns N' Roses</span>
+                                </div>
+                            </div>
+                            <div class="playlist-track" data-index="2">
+                                <div class="track-num-status">
+                                    <span class="num">3</span>
+                                    <span class="playing-bars hidden"><span></span><span></span><span></span></span>
+                                </div>
+                                <div class="track-name-meta">
+                                    <span class="title">En el muelle de San Blas</span>
+                                    <span class="artist">Maná</span>
+                                </div>
+                            </div>
+                            <div class="playlist-track" data-index="3">
+                                <div class="track-num-status">
+                                    <span class="num">4</span>
+                                    <span class="playing-bars hidden"><span></span><span></span><span></span></span>
+                                </div>
+                                <div class="track-name-meta">
+                                    <span class="title">Entre Tejados</span>
+                                    <span class="artist">Samuraï</span>
+                                </div>
+                            </div>
+                            <div class="playlist-track" data-index="4">
+                                <div class="track-num-status">
+                                    <span class="num">5</span>
+                                    <span class="playing-bars hidden"><span></span><span></span><span></span></span>
+                                </div>
+                                <div class="track-name-meta">
+                                    <span class="title">Dancing in the Moonlight</span>
+                                    <span class="artist">Toploader</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <footer class="main-footer">
+            <p>Hecho con magia y flores violetas para Nicole 🌸</p>
+        </footer>
+    </main>
+
+    <!-- Background Sparkles JavaScript code directly integrated or loaded -->
+    <script src="app.js"></script>
+</body>
+</html>
