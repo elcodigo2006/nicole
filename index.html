@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="El Truquito de la Abuela - Disfruta de la mejor comida tradicional ecuatoriana en Rubí. Encebollado, Fritada, Tigrillo y más con la sazón auténtica de la abuela.">
+    <title>El Truquito de la Abuela | Comida Tradicional Ecuatoriana en Rubí</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Hoja de estilos externa -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header class="main-header">
+        <div class="container header-container">
+            <a href="#inicio" class="logo">
+                <span class="logo-accent">El Truquito</span>
+                <span class="logo-sub">de la Abuela</span>
+            </a>
+
+            <nav class="nav-menu" id="navMenu">
+                <ul>
+                    <li><a href="#inicio" class="active">Inicio</a></li>
+                    <li><a href="#historia">Nuestra Historia</a></li>
+                    <li><a href="#carta">La Carta</a></li>
+                    <li><a href="#horario">Horarios</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="tel:+34931967529" class="btn btn-primary btn-nav">
+                    <i class="fa-solid fa-phone"></i> Llamar y Reservar
+                </a>
+                <button class="mobile-menu-toggle" id="menuToggle" aria-label="Abrir menú">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-section">
+        <div class="hero-bg"></div>
+        <div class="container hero-container">
+            <div class="hero-content">
+                <span class="hero-subtitle">Sazón Criolla y Tradición</span>
+                <h1 class="hero-title">El sabor de siempre, el secreto de la abuela</h1>
+                <p class="hero-text">Descubre la auténtica cocina tradicional ecuatoriana en el corazón de Rubí. Platos elaborados con el cariño de casa y las recetas familiares más queridas.</p>
+                <div class="hero-buttons">
+                    <a href="#carta" class="btn btn-primary btn-lg">Explorar la Carta</a>
+                    <a href="#horario" class="btn btn-secondary btn-lg">Ver Horarios</a>
+                </div>
+            </div>
+            <div class="hero-badge">
+                <div class="badge-content">
+                    <span class="badge-num">4.2</span>
+                    <span class="badge-stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-regular fa-star-half-stroke"></i>
+                    </span>
+                    <span class="badge-text">240+ Reseñas en Google</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Highlights -->
+    <section class="highlights-section">
+        <div class="container grid grid-3">
+            <div class="highlight-card">
+                <div class="highlight-icon">
+                    <i class="fa-solid fa-utensils"></i>
+                </div>
+                <h3>100% Auténtico</h3>
+                <p>Ingredientes tradicionales importados y recetas autóctonas para mantener el verdadero sabor ecuatoriano.</p>
+            </div>
+            <div class="highlight-card">
+                <div class="highlight-icon">
+                    <i class="fa-solid fa-heart"></i>
+                </div>
+                <h3>Hecho con Amor</h3>
+                <p>Cada plato se prepara al momento, con cocciones lentas y el toque casero característico de las abuelas.</p>
+            </div>
+            <div class="highlight-card">
+                <div class="highlight-icon">
+                    <i class="fa-solid fa-users"></i>
+                </div>
+                <h3>Ambiente Familiar</h3>
+                <p>Un espacio acogedor y alegre en Rubí para reunirse con amigos y familia a compartir y disfrutar.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="historia" class="about-section">
+        <div class="container grid grid-2 align-items-center">
+            <div class="about-image-wrapper">
+                <img src="assets/interior_warm.png" alt="Interior acogedor de El Truquito de la Abuela" class="about-image">
+                <div class="about-experience-badge">
+                    <span class="exp-years">Rubí</span>
+                    <span class="exp-text">Barcelona</span>
+                </div>
+            </div>
+            <div class="about-content">
+                <span class="section-tag">Nuestra Historia</span>
+                <h2 class="section-title">El rincón del buen comer ecuatoriano</h2>
+                <p class="section-paragraph">En <strong>El Truquito de la Abuela</strong>, traemos los secretos culinarios del Ecuador directamente a tu mesa en Rubí. Nuestro bar restaurante nace de la pasión por preservar los platos que nos recuerdan a nuestra infancia, combinando ingredientes frescos de la huerta local con especias traídas de nuestra tierra.</p>
+                <p class="section-paragraph">Desde nuestro crujiente chicharrón para los bolones del desayuno hasta nuestro reconfortante encebollado de pescado de los fines de semana, cada receta tiene un "truquito" especial guardado bajo llave. Ven a disfrutar de un viaje de sabores sin salir de Cataluña.</p>
+                <div class="about-signature">
+                    <div class="sig-text">
+                        <span class="sig-title">Cocina Tradicional</span>
+                        <span class="sig-subtitle">El Truquito de la Abuela</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="carta" class="menu-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Nuestras Delicias</span>
+                <h2 class="section-title">La Carta de la Abuela</h2>
+                <p class="section-subtitle">Explora nuestras especialidades elaboradas con ingredientes auténticos y frescos.</p>
+            </div>
+
+            <!-- Tab Navigation -->
+            <div class="menu-tabs">
+                <button class="tab-btn active" data-target="desayunos">
+                    <i class="fa-solid fa-mug-saucer"></i> Desayunos Tradicionales
+                </button>
+                <button class="tab-btn" data-target="especialidades">
+                    <i class="fa-solid fa-utensils"></i> Platos Fuertes y Especialidades
+                </button>
+                <button class="tab-btn" data-target="bebidas">
+                    <i class="fa-solid fa-wine-glass"></i> Bebidas y Postres
+                </button>
+            </div>
+
+            <!-- Tab Contents -->
+            <div class="menu-contents">
+
+                <!-- Desayunos -->
+                <div class="tab-content active" id="desayunos">
+                    <div class="grid grid-2">
+                        <div class="menu-item-card">
+                            <div class="menu-item-info">
+                                <div class="menu-item-header">
+                                    <h4 class="menu-item-name">Bolón de Verde Mixto <span class="tag-recommend">Popular</span></h4>
+                                    <span class="menu-item-price">6,50 €</span>
+                                </div>
+                                <p class="menu-item-desc">Plátano verde macho frito y majado, relleno con abundante queso costeño y chicharrón crujiente. Acompañado de café filtrado.</p>
+                            </div>
+                        </div>
+                        <div class="menu-item-card">
+                            <div class="menu-item-info">
+                                <div class="menu-item-header">
+                                    <h4 class="menu-item-name">Tigrillo Mixto</h4>
+                                    <span class="menu-item-price">7,50 €</span>
+                                </div>
+                                <p class="menu-item-desc">Exquisito plátano verde cocido y machacado con huevo revuelto, queso costeño y chicharrón. Servido bien caliente.</p>
+                            </div>
+                        </div>
+                        <div class="menu-item-card">
+                            <div class="menu-item-info">
+                                <div class="menu-item-header">
+                                    <h4 class="menu-item-name">Humita Ecuatoriana</h4>
+                                    <span class="menu-item-price">3,50 €</span>
+                                </div>
+                                <p class="menu-item-desc">Pastelito tierno de maíz molido con queso fresco, envuelto en hojas de choclo y cocinado al vapor. Acompañado de café.</p>
+                            </div>
+                        </div>
+                        <div class="menu-item-card">
+                            <div class="menu-item-info">
+                                <div class="menu-item-header">
+                                    <h4 class="menu-item-name">Empanada de Viento</h4>
+                                    <span class="menu-item-price">2,50 €</span>
+                                </div>
+                                <p class="menu-item-desc">Empanada gigante y crujiente de harina de trigo, rellena de queso derretido y espolvoreada con un toque de azúcar.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Especialidades -->
+                <div class="tab-content" id="especialidades">
+                    <div class="menu-featured-item grid grid-2 align-items-center">
+                        <div class="featured-item-image-wrapper">
+                            <img src="assets/fritada_dish.png" alt="Fritada Ecuatoriana Tradicional" class="featured-item-image">
+                            <span class="featured-badge">Plato Estrella</span>
+                        </div>
+                        <div class="featured-item-details">
+                            <h3>Fritada Ecuatoriana Estilo Otavalo</h3>
+                            <p class="featured-desc">Nuestra famosa fritada se cocina a fuego lento en agua con ajo, cebolla y comino hasta que el agua se evapora, para luego dorarse en su propia grasa natural. El resultado es una carne tierna por dentro y sumamente crujiente por fuera.</p>
+                            <ul class="featured-ingredients">
+                                <li><i class="fa-solid fa-check"></i> Carne de cerdo seleccionada</li>
+                                <li><i class="fa-solid fa-check"></i> Mote (maíz blanco cocido)</li>
+                                <li><i class="fa-solid fa-check"></i> Plátano maduro frito (dulce)</li>
+                                <li><i class="fa-solid fa-check"></i> Aguacate y curtido de cebolla morada</li>
+                            </ul>
+                            <div class="featured-footer">
+                                <span class="featured-price">12,50 €</span>
+                                <a href="tel:+34931967529" class="btn btn-primary"><i class="fa-solid fa-phone"></i> Pedir Ahora</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-2 margin-top-lg">
+                        <div class="menu-item-card">
+                            <div class="menu-item-info">
+                                <div class="menu-item-header">
+                                    <h4 class="menu-item-name">Encebollado de Pescado <span class="tag-recommend">Nacional</span></h4>
+                                    <span class="menu-item-price">11,50 €</span>
+                                </div>
+                                <p class="menu-item-desc">El plato bandera de Ecuador. Sopa caliente de atún fresco cocinado con yuca suave, abundante cebolla morada curtida, tomate y cilantro fresco. Acompañado de chifles.</p>
+                            </div>
+                        </div>
+                        <div class="menu-item-card">
+                            <div class="menu-item-info">
+                                <div class="menu-item-header">
+                                    <h4 class="menu-item-name">Seco de Ternera (Seco de Carne)</h4>
+                                    <span class="menu-item-price">12,00 €</span>
+                                </div>
+                                <p class="menu-item-desc">Tierno guiso de ternera macerado en una reducción de cerveza y pulpa de naranjilla fresca, acompañado de arroz amarillo y plátano maduro frito.</p>
+                            </div>
+                        </div>
+                        <div class="menu-item-card">
+                            <div class="menu-item-info">
+                                <div class="menu-item-header">
+                                    <h4 class="menu-item-name">Ceviche Ecuatoriano de Camarón</h4>
+                                    <span class="menu-item-price">13,00 €</span>
+                                </div>
+                                <p class="menu-item-desc">Camarones frescos marinados en una base de jugo de limón, naranja natural, salsa de tomate ligera, cebolla curtida y mucho cilantro. Acompañado de maíz tostado y chifles.</p>
+                            </div>
+                        </div>
+                        <div class="menu-item-card">
+                            <div class="menu-item-info">
+                                <div class="menu-item-header">
+                                    <h4 class="menu-item-name">Caldo de Bola de Verde</h4>
+                                    <span class="menu-item-price">10,50 €</span>
+                                </div>
+                                <p class="menu-item-desc">Reconfortante consomé de carne de res con yuca, choclo, y una gran bola elaborada con masa de plátano verde rellena de carne picada, huevo, pasas y maní.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bebidas -->
+                <div class="tab-content" id="bebidas">
+                    <div class="grid grid-2">
+                        <div class="menu-item-card">
+                            <div class="menu-item-info">
+                                <div class="menu-item-header">
+                                    <h4 class="menu-item-name">Jugo Natural de Naranjilla (Lulo)</h4>
+                                    <span class="menu-item-price">3,00 €</span>
+                                </div>
+                                <p class="menu-item-desc">Jugo natural licuado al momento con pulpa de naranjilla andina fresca. Refrescante, cítrico y delicioso.</p>
+                            </div>
+                        </div>
+                        <div class="menu-item-card">
+                            <div class="menu-item-info">
+                                <div class="menu-item-header">
+                                    <h4 class="menu-item-name">Jugo Natural de Guanábana</h4>
+                                    <span class="menu-item-price">3,00 €</span>
+                                </div>
+                                <p class="menu-item-desc">Exótica guanábana licuada en agua o en leche. Una bebida dulce, cremosa e irresistible.</p>
+                            </div>
+                        </div>
+                        <div class="menu-item-card">
+                            <div class="menu-item-info">
+                                <div class="menu-item-header">
+                                    <h4 class="menu-item-name">Cerveza Pilsener Ecuatoriana</h4>
+                                    <span class="menu-item-price">3,50 €</span>
+                                </div>
+                                <p class="menu-item-desc">La cerveza clásica ecuatoriana importada. Rubia, refrescante, ideal para acompañar un encebollado o una fritada.</p>
+                            </div>
+                        </div>
+                        <div class="menu-item-card">
+                            <div class="menu-item-info">
+                                <div class="menu-item-header">
+                                    <h4 class="menu-item-name">Club Premium Ecuatoriana</h4>
+                                    <span class="menu-item-price">3,50 €</span>
+                                </div>
+                                <p class="menu-item-desc">Cerveza tipo Pilsener premium de Ecuador. Con más cuerpo, aroma a lúpulo seleccionado y un final limpio.</p>
+                            </div>
+                        </div>
+                        <div class="menu-item-card">
+                            <div class="menu-item-info">
+                                <div class="menu-item-header">
+                                    <h4 class="menu-item-name">Colada Morada con Guagua de Pan (Temporada)</h4>
+                                    <span class="menu-item-price">5,00 €</span>
+                                </div>
+                                <p class="menu-item-desc">Bebida tradicional a base de harina de maíz negro, frutas y especias aromáticas, acompañada del característico pan dulce con forma de muñeca.</p>
+                            </div>
+                        </div>
+                        <div class="menu-item-card">
+                            <div class="menu-item-info">
+                                <div class="menu-item-header">
+                                    <h4 class="menu-item-name">Flan Casero de la Abuela</h4>
+                                    <span class="menu-item-price">3,50 €</span>
+                                </div>
+                                <p class="menu-item-desc">Delicioso postre de leche asada con caramelo líquido artesanal, siguiendo el truquito original de la casa.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section id="horario" class="schedule-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Cuándo Visitarla</span>
+                <h2 class="section-title">Nuestros Horarios</h2>
+                <p class="section-subtitle">Organizados de forma clara y ordenada para que nunca te quedes sin tu plato favorito.</p>
+            </div>
+
+            <!-- Live Status Banner -->
+            <div class="live-status-container">
+                <div class="live-status-card" id="liveStatusCard">
+                    <span class="pulse-indicator" id="statusPulse"></span>
+                    <strong id="statusLabel">--</strong>
+                    <span id="statusTimeDetail">Cargando horario...</span>
+                </div>
+            </div
